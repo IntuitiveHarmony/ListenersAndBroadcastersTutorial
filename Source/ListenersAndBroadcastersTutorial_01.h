@@ -63,6 +63,17 @@ public:
         timeLabel.setColour (juce::Label::backgroundColourId, juce::Colours::black);
         timeLabel.setColour (juce::Label::textColourId, juce::Colours::white);
         timeLabel.setJustificationType (juce::Justification::centred);
+        
+        // ~~ Me trying to do a date button on my own ~~
+        addAndMakeVisible(checkTheDateButton);
+        checkTheDateButton.setButtonText("Check the date...");
+        checkTheDateButton.addListener(this);
+        
+        addAndMakeVisible(dateLabel);
+        dateLabel.setColour (juce::Label::backgroundColourId, juce::Colours::black);
+        dateLabel.setColour (juce::Label::textColourId, juce::Colours::white);
+        dateLabel.setJustificationType (juce::Justification::right);
+        
 
         setSize (600, 110);
     }
@@ -75,8 +86,10 @@ public:
     }
     void resized() override
     {
-        checkTheTimeButton.setBounds (10, 10, getWidth() - 20, 40);
-        timeLabel         .setBounds (10, 60, getWidth() - 20, 40);
+        checkTheTimeButton.setBounds (10, 10, getWidth() - 320, 40);
+        timeLabel         .setBounds (10, 60, getWidth() - 320, 40);
+        checkTheDateButton.setBounds (300, 10, getWidth() - 320, 40);
+        dateLabel         .setBounds (300, 60, getWidth() - 320, 40);
     }
     
     // ~~ Declare the button click function ~~
@@ -97,8 +110,9 @@ public:
     }
 
 private:
-    juce::TextButton checkTheTimeButton;
-    juce::Label timeLabel;
+    // ~~  Adding a date button and label ~~
+    juce::TextButton checkTheTimeButton, checkTheDateButton;
+    juce::Label timeLabel, dateLabel;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
