@@ -75,7 +75,18 @@ public:
     // ~~ Declare the button click function
     void buttonClicked (juce::Button* button) override
     {
-        
+        // ~~ Compare the button pointer to the address. We only have one button but this verifys if there were multiple buttons ~~
+        if (button == &checkTheTimeButton)
+        {
+            // ~~ Use the time class to get the current time from the operating system ~~
+            auto currentTime = juce::Time::getCurrentTime();
+            // ~~ Convert the Time object into a string ~~
+            auto includeDate = true;
+            auto includeTime = true;
+            auto currentTimeString = currentTime.toString(includeDate, includeTime);
+            // ~~ Update the text within the label ~~
+            timeLabel.setText(currentTimeString, juce::dontSendNotification);
+        }
     }
 
 private:
