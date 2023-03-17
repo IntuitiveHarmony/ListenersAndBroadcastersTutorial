@@ -72,7 +72,7 @@ public:
         addAndMakeVisible(dateLabel);
         dateLabel.setColour (juce::Label::backgroundColourId, juce::Colours::black);
         dateLabel.setColour (juce::Label::textColourId, juce::Colours::white);
-        dateLabel.setJustificationType (juce::Justification::right);
+        dateLabel.setJustificationType (juce::Justification::centred);
         
 
         setSize (600, 110);
@@ -86,6 +86,7 @@ public:
     }
     void resized() override
     {
+        // ~~ I adjusted the orginal code inoder to accomodate my date button ~~
         checkTheTimeButton.setBounds (10, 10, getWidth() - 320, 40);
         timeLabel         .setBounds (10, 60, getWidth() - 320, 40);
         checkTheDateButton.setBounds (300, 10, getWidth() - 320, 40);
@@ -95,17 +96,29 @@ public:
     // ~~ Declare the button click function ~~
     void buttonClicked (juce::Button* button) override
     {
-        // ~~ Compare the button pointer to the address. We only have one button but this verifys if there were multiple buttons ~~
-        if (button == &checkTheTimeButton)
+        // ~~ Compare the button pointer to the address. use same button click for mutilple buttons ~~
+        if (button == &checkTheTimeButton) // ~~ Time Button ~~
         {
             // ~~ Use the time class to get the current time from the operating system ~~
             auto currentTime = juce::Time::getCurrentTime();
             // ~~ Convert the Time object into a string ~~
-            auto includeDate = true;
+            auto includeDate = false;
             auto includeTime = true;
             auto currentTimeString = currentTime.toString(includeDate, includeTime);
             // ~~ Update the text within the label ~~
             timeLabel.setText(currentTimeString, juce::dontSendNotification);
+        }
+        // ~~ Date Button ~~
+        if (button == &checkTheDateButton)
+        {
+            // ~~ Use the time class to get the current date from the operating system ~~
+            auto currentDate = juce::Time::getCurrentTime();
+            // ~~ Convert the Time object into a string ~~
+            auto includeDate = true;
+            auto includeTime = false;
+            auto currentDateString = currentDate.toString(includeDate, includeTime);
+            // ~~ Update the text within the label ~~
+            dateLabel.setText(currentDateString, juce::dontSendNotification);
         }
     }
 
