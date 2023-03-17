@@ -14,7 +14,7 @@ https://docs.juce.com/master/tutorial_listeners_and_broadcasters.html
 
 ## What I learned
 
-I am more comfortable with `broadcasters` and `listeners`.  I expaneded on the orginal tutorial and added a check the date button.  Since the author of JUCE is from London he uses a different spelling for `colour` and `centred`.  I ran into a slight issue when I was trying to use `centered` for the labels.  It took me a little bit to wrap my head around what was going on!
+I am more comfortable with `broadcasters` and `listeners`.  I expaneded on the orginal tutorial and added a check the date button.  Since the author of JUCE is from England he uses a different spelling for `colour` and `centred`.  I ran into a slight issue when I was trying to use `centered` for the labels.  It took me a little bit to wrap my head around what was going on!
 
 ### Broadcasters
 
