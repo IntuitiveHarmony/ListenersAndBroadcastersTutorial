@@ -3,7 +3,7 @@
 This follows a tutorial from the JUCE website
 https://docs.juce.com/master/tutorial_listeners_and_broadcasters.html
 
-Going through this I hope to learn how to use a button to print the current time in a label window.  Code I wrote into the source code is commented on `// ~~ like this ~~`
+Going through this I hope to learn how to use a button to print the current time in a label window.  Everything I added into the source code is commented on `// ~~ like this ~~`
 
 ![Button Demo](/images/Demo.gif)
 
