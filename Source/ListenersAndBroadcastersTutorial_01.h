@@ -46,7 +46,8 @@
 #pragma once
 
 //==============================================================================
-class MainContentComponent   : public juce::Component
+class MainContentComponent   : public juce::Component,
+public juce::Button::Listener // ~~ Add the button listener class to the maincomponent class ~~
 {
 public:
     //==============================================================================
@@ -69,6 +70,12 @@ public:
     {
         checkTheTimeButton.setBounds (10, 10, getWidth() - 20, 40);
         timeLabel         .setBounds (10, 60, getWidth() - 20, 40);
+    }
+    
+    // ~~ Declare the button click function
+    void buttonClicked (juce::Button* button) override
+    {
+        
     }
 
 private:
