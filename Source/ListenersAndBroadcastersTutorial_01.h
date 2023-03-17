@@ -83,6 +83,7 @@ public:
     {
         // ~~ technically this will happen anyway  but for completeness ~~
         checkTheTimeButton.removeListener(this);
+        checkTheDateButton.removeListener(this);
     }
     void resized() override
     {
