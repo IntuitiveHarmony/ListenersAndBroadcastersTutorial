@@ -56,6 +56,8 @@ public:
     {
         addAndMakeVisible (checkTheTimeButton);
         checkTheTimeButton.setButtonText ("Check the time...");
+        // ~~ Register the listener object with the broadcaster ~~
+        checkTheTimeButton.addListener(this);
 
         addAndMakeVisible (timeLabel);
         timeLabel.setColour (juce::Label::backgroundColourId, juce::Colours::black);
@@ -65,14 +67,19 @@ public:
         setSize (600, 110);
     }
 //! [MainContentComponent constructor]
-
+    // ~~ The deconstructor wasn't declared ~~
+    ~MainContentComponent()
+    {
+        // ~~ technically this will happen anyway  but for completeness ~~
+        checkTheTimeButton.removeListener(this);
+    }
     void resized() override
     {
         checkTheTimeButton.setBounds (10, 10, getWidth() - 20, 40);
         timeLabel         .setBounds (10, 60, getWidth() - 20, 40);
     }
     
-    // ~~ Declare the button click function
+    // ~~ Declare the button click function ~~
     void buttonClicked (juce::Button* button) override
     {
         // ~~ Compare the button pointer to the address. We only have one button but this verifys if there were multiple buttons ~~
